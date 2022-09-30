@@ -2,9 +2,14 @@
 
 # base16-prompt-toolkit (https://github.com/memeplex/base16-prompt-toolkit)
 # Base16 Prompt Toolkit template by Carlos Pita (carlosjosepita@gmail.com
-# Tomorrow Night scheme by Chris Kempson (http://chriskempson.com)
+# iA Light scheme by iA Inc. (modified by aramisgithub)
 
-from prompt_toolkit.terminal.vt100_output import _256_colors
+try:
+  # older than v2
+  from prompt_toolkit.output.vt100 import _256_colors
+except ModuleNotFoundError:
+  # version 2
+  from prompt_toolkit.formatted_text.ansi import _256_colors
 from pygments.style import Style
 from pygments.token import (Keyword, Name, Comment, String, Error, Text,
                             Number, Operator, Literal, Token)
@@ -12,22 +17,22 @@ from pygments.token import (Keyword, Name, Comment, String, Error, Text,
 # See http://chriskempson.com/projects/base16/ for a description of the role
 # of the different colors in the base16 palette.
 
-base00 = '#1d1f21'
-base01 = '#282a2e'
-base02 = '#373b41'
-base03 = '#969896'
-base04 = '#b4b7b4'
-base05 = '#c5c8c6'
-base06 = '#e0e0e0'
-base07 = '#ffffff'
-base08 = '#cc6666'
-base09 = '#de935f'
-base0A = '#f0c674'
-base0B = '#b5bd68'
-base0C = '#8abeb7'
-base0D = '#81a2be'
-base0E = '#b294bb'
-base0F = '#a3685a'
+base00 = '#f6f6f6'
+base01 = '#dedede'
+base02 = '#bde5f2'
+base03 = '#898989'
+base04 = '#767676'
+base05 = '#181818'
+base06 = '#e8e8e8'
+base07 = '#f8f8f8'
+base08 = '#9c5a02'
+base09 = '#c43e18'
+base0A = '#c48218'
+base0B = '#38781c'
+base0C = '#2d6bb1'
+base0D = '#48bac2'
+base0E = '#a94598'
+base0F = '#8b6c37'
 
 # See https://github.com/jonathanslenders/python-prompt-toolkit/issues/355
 

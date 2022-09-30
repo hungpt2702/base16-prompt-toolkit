@@ -4,7 +4,12 @@
 # Base16 Prompt Toolkit template by Carlos Pita (carlosjosepita@gmail.com
 # Zenburn scheme by elnawe
 
-from prompt_toolkit.terminal.vt100_output import _256_colors
+try:
+  # older than v2
+  from prompt_toolkit.output.vt100 import _256_colors
+except ModuleNotFoundError:
+  # version 2
+  from prompt_toolkit.formatted_text.ansi import _256_colors
 from pygments.style import Style
 from pygments.token import (Keyword, Name, Comment, String, Error, Text,
                             Number, Operator, Literal, Token)
@@ -12,10 +17,10 @@ from pygments.token import (Keyword, Name, Comment, String, Error, Text,
 # See http://chriskempson.com/projects/base16/ for a description of the role
 # of the different colors in the base16 palette.
 
-base00 = '#3f3f3f'
+base00 = '#383838'
 base01 = '#404040'
 base02 = '#606060'
-base03 = '#4f4f4f'
+base03 = '#6f6f6f'
 base04 = '#808080'
 base05 = '#dcdccc'
 base06 = '#c0c0c0'

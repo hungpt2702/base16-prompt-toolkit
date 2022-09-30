@@ -2,9 +2,14 @@
 
 # base16-prompt-toolkit (https://github.com/memeplex/base16-prompt-toolkit)
 # Base16 Prompt Toolkit template by Carlos Pita (carlosjosepita@gmail.com
-# Solarized Dark scheme by Ethan Schoonover (http://ethanschoonover.com/solarized)
+# Solarized Dark scheme by Ethan Schoonover (modified by aramisgithub)
 
-from prompt_toolkit.terminal.vt100_output import _256_colors
+try:
+  # older than v2
+  from prompt_toolkit.output.vt100 import _256_colors
+except ModuleNotFoundError:
+  # version 2
+  from prompt_toolkit.formatted_text.ansi import _256_colors
 from pygments.style import Style
 from pygments.token import (Keyword, Name, Comment, String, Error, Text,
                             Number, Operator, Literal, Token)
